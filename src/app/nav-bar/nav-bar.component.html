@@ -1,0 +1,11 @@
+<nav>
+  <a routerLink="/">
+    <h1 class="app-heading">Real-Time Chat App</h1>
+  </a>
+  <ng-container *ngIf="auth.user | async as user">
+    <!-- | async as user is the html way to use pipe. Here the control waits till auth.user call is resolved. This is called the async pipe.
+      The resolved data is set to user variable in async as 'user' -->
+    <button class="sign-out-button" (click)="onClickSignOut()">Sign Out</button>
+    <p class="logged-in-as space-before">Logged in as {{ user.email }}</p>
+  </ng-container>
+</nav>
