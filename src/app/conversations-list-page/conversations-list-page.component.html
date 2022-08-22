@@ -1,0 +1,16 @@
+<p *ngIf="isLoading">Loading messages...</p>
+<div *ngIf="!isLoading" class="centered-container">
+  <h1 class="section-heading">Conversation</h1>
+  <a
+    *ngFor="let conversation of conversations"
+    routerLink="/conversations/{{ conversation._id }}"
+  >
+    <div class="list-item">
+      <h3>{{ conversation.name }}</h3>
+      <p>{{ conversation.memberIds.length }} members</p>
+    </div>
+  </a>
+  <a routerLink="/new-conversation">
+    <button class="full-width space-before">New Conversation</button>
+  </a>
+</div>
